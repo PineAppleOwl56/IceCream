@@ -14,7 +14,7 @@ services:
 
   icecream-app:
     build: .
-    container_name: icecream-app-v1
+    container_name: app
     ports:
       - "3000:3000"
     depends_on:
