@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: icecream-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: icecream-app
+  template:
+    metadata:
+      labels:
+        app: icecream-app
+    spec:
+      containers:
+        - name: icecream-app
+          image: icecream-icecream-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGODB_URI
+              value: mongodb://admin:password@mongodb:27017
